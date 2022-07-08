@@ -10,8 +10,14 @@ export const hasStudent = (studentList, studentId) => {
   return false;
 };
 
+// export const hasStudentv2 = (studentList, studentId) => {
+//   if (!Array.isArray(studentList)) return false;
+
+//   return studentList.some((student) => student?.id === studentId);
+// };
+
 export const hasStudentv2 = (studentList, studentId) => {
   if (!Array.isArray(studentList)) return false;
 
-  return studentList.some((student) => student?.id === studentId);
+  return studentList.findIndex((student) => student?.id === studentId) > -1;
 };

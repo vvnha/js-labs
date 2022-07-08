@@ -16,6 +16,23 @@ export const hasEasyFrontend = (wordList) => {
   return hasEasy && hasFrontend;
 };
 
+// export const hasEasyFrontendv2 = (wordList) => {
+//   if (!Array.isArray(wordList)) return false;
+
+//   let hasEasy = false;
+//   let hasFrontend = false;
+
+//   return (
+//     wordList.some((word) => {
+//       if (word.toLowerCase() === 'easy') hasEasy = true;
+//       if (word.toLowerCase() === 'frontend') hasFrontend = true;
+
+//       return word === 'easy frontend';
+//     }) ||
+//     (hasEasy && hasFrontend)
+//   );
+// };
+
 export const hasEasyFrontendv2 = (wordList) => {
   if (!Array.isArray(wordList)) return false;
 
@@ -23,12 +40,12 @@ export const hasEasyFrontendv2 = (wordList) => {
   let hasFrontend = false;
 
   return (
-    wordList.some((word) => {
+    wordList.findIndex((word) => {
       if (word.toLowerCase() === 'easy') hasEasy = true;
       if (word.toLowerCase() === 'frontend') hasFrontend = true;
 
       return word === 'easy frontend';
-    }) ||
+    }) > -1 ||
     (hasEasy && hasFrontend)
   );
 };

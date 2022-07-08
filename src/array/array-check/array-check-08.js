@@ -8,8 +8,14 @@ export const hasFreeShip = (productList, price) => {
   return false;
 };
 
+// export const hasFreeShipv2 = (productList, price) => {
+//   if (!Array.isArray(productList)) return false;
+
+//   return productList.some((x) => x.isFreeShip && x.price < price);
+// };
+
 export const hasFreeShipv2 = (productList, price) => {
   if (!Array.isArray(productList)) return false;
 
-  return productList.some((x) => x.isFreeShip && x.price < price);
+  return productList.findIndex((x) => x.isFreeShip && x.price < price) > -1;
 };

@@ -11,9 +11,16 @@ export const hasEvenNumberGreaterThanN = (numberList, n) => {
   return false;
 };
 
+// export const hasEvenNumberGreaterThanNv2 = (numberList, n) => {
+//   if (numberList.length === 0) return false;
+//   if (typeof n !== 'number') return false;
+
+//   return numberList.some((number) => number % 2 === 0 && number > n);
+// };
+
 export const hasEvenNumberGreaterThanNv2 = (numberList, n) => {
   if (numberList.length === 0) return false;
   if (typeof n !== 'number') return false;
 
-  return numberList.some((number) => number % 2 === 0 && number > n);
+  return numberList.findIndex((number) => number % 2 === 0 && number > n) > -1;
 };

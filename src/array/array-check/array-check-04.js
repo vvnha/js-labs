@@ -8,8 +8,14 @@ export const hasTruthy = (arr) => {
   return false;
 };
 
+// export const hasTruthyv2 = (arr) => {
+//   if (!Array.isArray(arr) || arr?.length === 0) return false;
+
+//   return arr.some((x) => !!x);
+// };
+
 export const hasTruthyv2 = (arr) => {
   if (!Array.isArray(arr) || arr?.length === 0) return false;
 
-  return arr.some((x) => !!x);
+  return arr.findIndex((x) => !!x) > -1;
 };
