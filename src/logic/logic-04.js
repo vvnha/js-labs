@@ -6,8 +6,6 @@ export const findMostFrequentNumber = (numberList) => {
     flag[numberList[i]] = flag[numberList[i]] !== undefined ? flag[numberList[i]] + 1 : 1;
   }
 
-  console.log(flag);
-
   return Number(
     Object.keys(flag).reduce((maxFreq, key) => {
       maxFreq = flag[key] > flag[maxFreq] ? key : maxFreq;
