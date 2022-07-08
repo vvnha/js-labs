@@ -15,3 +15,6 @@ export const hasAlicev2 = (studentList) => {
     (student) => student.name.toLowerCase() === 'alice' && student.gender === 'female'
   );
 };
+
+// for
+//find !== null/ findIndex > -1/ filter > 0
