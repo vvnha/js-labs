@@ -2,16 +2,17 @@ export const findMostFrequentNumber = (numberList) => {
   if (!Array.isArray(numberList) || numberList?.length <= 0) return undefined;
 
   const flag = {};
+  let maxFreq = undefined;
+
   for (let i = 0; i < numberList.length; i++) {
     flag[numberList[i]] = flag[numberList[i]] !== undefined ? flag[numberList[i]] + 1 : 1;
+
+    if (maxFreq === undefined || flag[numberList[i]] > flag[maxFreq]) {
+      maxFreq = numberList[i];
+    }
   }
 
-  return Number(
-    Object.keys(flag).reduce((maxFreq, key) => {
-      maxFreq = flag[key] > flag[maxFreq] ? key : maxFreq;
-      return maxFreq;
-    })
-  );
+  return maxFreq;
 };
 
 // export const findMostFrequentNumber = (numberList) => {
