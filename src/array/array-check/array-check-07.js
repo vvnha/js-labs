@@ -17,4 +17,4 @@ export const hasAlicev2 = (studentList) => {
 };
 
 // for
-//find !== null/ findIndex > -1/ filter > 0
+//find !== undefined/ findIndex > -1/ filter > 0
