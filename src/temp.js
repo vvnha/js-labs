@@ -235,3 +235,47 @@ console.log(isValidPIN(123456));
 console.log(isValidPIN(2464351));
 console.log(isValidPIN(112345));
 console.log(isValidPIN(123123));
+
+function binarySearch(studentList, searchName) {
+  // your code here
+  if (
+    !Array.isArray(studentList) ||
+    studentList.length === 0 ||
+    typeof searchName !== 'string' ||
+    searchName.length === 0 ||
+    searchName === ' ' ||
+    studentList === undefined ||
+    searchName === undefined
+  )
+    return -1;
+
+  const lowerSearchName = searchName.toLowerCase().trim();
+
+  let left = 0;
+  let right = studentList.length - 1;
+
+  while (left <= right) {
+    const mid = left + Math.trunc((right - left) / 2);
+    const studentLowerName = studentList[mid].name.toLowerCase().trim();
+    if (studentLowerName === lowerSearchName) return mid;
+
+    if (lowerSearchName > studentLowerName) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return -1;
+}
+
+const studentList = [
+  { id: 1, name: 'Alice' },
+  { id: 3, name: 'Bob Tan' },
+  { id: 2, name: 'John' },
+];
+
+console.log(binarySearch(studentList, 'aliCE'));
+
+console.log(binarySearch(studentList, 'Bob Tan'));
+
+console.log(binarySearch(studentList, 'john'));
