@@ -279,3 +279,9 @@ console.log(binarySearch(studentList, 'aliCE'));
 console.log(binarySearch(studentList, 'Bob Tan'));
 
 console.log(binarySearch(studentList, 'john'));
+
+console.log(sum(1, 2)); // also works
+function sum(a, b) {
+ return a + b;
+}
+console.log(sum(1, 2));
