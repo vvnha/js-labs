@@ -1,4 +1,4 @@
-function flat(array, depth) {
+function flat(array, depth = 0) {
   if (depth === 0) return array;
   let newArray = [];
 
@@ -15,6 +15,19 @@ function flat(array, depth) {
   return newArray;
 }
 
-const abc = [1, 2, [1, [2]]];
+function flatMap(array, callbackFn) {
+  let newArray = [];
 
-console.log(flat(abc, 1));
+  let i = 0;
+
+  while (i < array.length) {
+    newArray.push(...callbackFn(array[i]));
+    i++;
+  }
+
+  return newArray;
+}
+
+const abc = [1, 2, 3, 4];
+
+console.log(flatMap(abc, (x) => [[x * 2]]));
