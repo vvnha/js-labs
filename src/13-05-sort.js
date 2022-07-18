@@ -40,3 +40,31 @@ function sortByAvg(studentList) {
 }
 
 console.log('sortByAvg', sortByAvg(studentList));
+
+function createCounter() {
+  // your code here
+
+  const statistics = {};
+
+  function count(label = 'default') {
+    console.log(statistics[label]);
+    // statistics[label] = statistics[label] !== undefined ? statistics[label] + 1 : 1;
+
+    console.log(statistics);
+    return `${label}: ${statistics[label]}`;
+  }
+
+  function resetCount(label = 'default') {
+    statistics[label] = 0;
+  }
+
+  return {
+    count,
+    resetCount,
+  };
+}
+
+const counter = createCounter();
+
+console.log(counter.count());
+console.log(counter.count());
